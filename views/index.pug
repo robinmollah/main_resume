@@ -2,12 +2,56 @@ extends layout
 
 block content
   h1
-    span(class="first-name") Robin
+    span(class="first-name")= "Robin "
     span(class="last-name") Mollah
+  p.
+    I started coding from an early age because I believe through technology I can make a huge national and global impact.
+    I would love to be a contributor in creating a history of technology-based society.
+    Being part of something that makes an upgrade in any part of this world is the most desired dream of my life.
+  br
   div(class="skill-section")
-    div(class="skillname") Game Developer
+    div(class="skill-name") Game Development
     div(class="platforms")
-      - const skills = ['Unity', 'LibGdx', 'HTML5', 'Phaser', 'Cocos', 'Unreal']
+      -
+        let skills = [{icon: 'https://img.icons8.com/ios-filled/50/000000/unity.png', name: 'Unity'},
+                      {icon: 'https://libgdx.badlogicgames.com/img/logo.png', name: ''},
+                      {icon: '/images/html5.png',name: 'HTML5'},
+                      {icon: 'https://phaser.io/images/img.png', name: 'Phaser'},
+                      {icon: 'http://i1.wp.com/blog.galantegames.com/wp-content/uploads/2015/04/2dx_icon_512_rounded.png?w=512', name: 'Cocos'},
+                      {icon: '/images/Unreal.png', name: 'Unreal'}]
       each value, i in skills
-        span(class="skill")= value
-
+        span(class="skill")
+          img(src=value.icon height=30)
+          span="  " + value.name
+  div(class="skill-section")
+    div(class="skill-name") Mobile App Development
+    div(class="platforms")
+      -
+        skills = [{icon: '/images/Android.png', name: 'Android'},
+                  {icon: '/images/reactjs.png', name: 'React Native'},
+                  {icon: 'https://cordova.apache.org/static/img/cordova_bot.png', name: 'Cordova'}]
+      each value, i in skills
+        span(class="skill")
+          img(src=value.icon height=30)
+          span= value.name
+  div(class="skill-section")
+    div(class="skill-name") Web Development
+    div(class="platforms")
+      -
+        skills = [{icon: '/images/php.png',name: 'PHP'},
+                  {icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/320px-Node.js_logo.svg.png',
+                    name: 'NodeJS'},
+                  {icon: '/images/express.png',name: ''},
+                  {icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/231px-Laravel.svg.png',
+                    name: 'Laravel'},
+                  {icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/320px-Django_logo.svg.png',
+                    name: ''}]
+      each value, i in skills
+        span(class="skill")
+          img(src=value.icon height=30)
+          span= value.name
+  //- TODO Add skill icons
+  //- TODO Add Card animation
+  //- TODO Add short description
+  //- TODO Add social icons
+  //- TODO Add blogs
