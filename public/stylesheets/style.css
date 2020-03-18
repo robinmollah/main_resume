@@ -1,0 +1,52 @@
+body {
+  padding: 50px;
+  font: 14px 'Saira', 'Roboto', "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+  font-size: 6em;
+}
+
+.first-name {
+  color: #00796B;
+  font: 14px 'Saira Condensed', sans-serif;
+  font-weight: 900;
+  font-size: inherit;
+}
+
+.last-name {
+  color: black;
+}
+
+.skill-section {
+  border: 1px solid #4086AA;
+  background-color: #99BAE1;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.skill-name {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill {
+  border-radius: 1em;
+  background-color: white;
+  font-weight: 400;
+  margin: 0.5em;
+  padding: 0.3em 1em;
+}

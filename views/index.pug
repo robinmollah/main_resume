@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1
+    span(class="first-name") Robin
+    span(class="last-name") Mollah
+  div(class="skill-section")
+    div(class="skillname") Game Developer
+    div(class="platforms")
+      - const skills = ['Unity', 'LibGdx', 'HTML5', 'Phaser', 'Cocos', 'Unreal']
+      each value, i in skills
+        span(class="skill")= value
+
