@@ -7,9 +7,18 @@ a {
   color: #00B7FF;
 }
 
-h1 {
+h1.animBor {
   font-size: 6em;
   margin: 0em;
+  transition: border-bottom 0.5s;
+}
+
+h1.animBor:hover {
+
+}
+
+#field-of-expertise {
+  display: none;
 }
 
 .first-name {
@@ -17,6 +26,14 @@ h1 {
   font: 14px 'Saira Condensed', sans-serif;
   font-weight: 900;
   font-size: inherit;
+}
+
+.first-name:hover {
+  border-bottom: 1px solid steelblue;
+}
+
+.last-name:hover {
+  border-bottom: 1px solid steelblue;
 }
 
 .last-name {
@@ -31,9 +48,8 @@ h1 {
 
   display: flex;
   flex-direction: column;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
-    transition: border-bottom-left-radius 0.5s;
+  border-radius: .5em .5em 1em 1em;
+  transition: border-bottom-left-radius 0.5s;
 }
 
 .skill-name {
@@ -62,4 +78,43 @@ h1 {
     box-shadow: 0em 0em 1em black;
     background-color: steelblue;
     color: white;
+}
+
+.tabs {
+  border-radius: 1.5em;
+  border: 1px solid black;
+  margin: 1em;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: steelblue;
+}
+
+.tab {
+  font-weight: bold;
+  color: white;
+  background-color: steelblue;
+  height: 100%;
+  width: 100%;
+  padding: 1em;
+  border: 1px solid black;
+}
+
+.tab-active {
+  background-color: lightsteelblue;
+}
+
+.tab-left {
+  border-bottom-left-radius: 1.5em;
+  border-top-left-radius: 1.5em;
+}
+
+.tab:hover {
+  box-shadow: -5px -0px 10px black;
+}
+
+.tab-right {
+  border-bottom-right-radius: 1.5em;
+  border-top-right-radius: 1.5em;
 }
