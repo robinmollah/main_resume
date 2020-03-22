@@ -1,4 +1,14 @@
 extends layout
 
 block content
-	span(class="head") Covid-19 Situation Room
+	span(class="head") Covid-19 Situation
+		img(src='./images/flag.svg' style="width: 2.5em")
+	div(class="first-chart")
+		div(id='curve_chart', style="width: fit-content; height: 500px;")
+		div(class="first-info")
+			span Total Case
+			span 27
+			span Death
+			span 2
+			span Recovered
+			span 5

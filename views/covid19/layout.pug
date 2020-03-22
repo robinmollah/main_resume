@@ -6,9 +6,58 @@ html
 		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto|Saira|Saira+Condensed&display=swap')
 		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
 		link(rel='stylesheet', href='./stylesheets/covid19/styles.css')
+		script(src='https://www.gstatic.com/charts/loader.js' type='text/javascript')
 		script(type="text/javascript").
 			setTimeout(function(){
 				location = '';
 			}, 95500);
+		script(type="text/javascript").
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = new google.visualization.DataTable();
+				data.addColumn('date', 'Date');
+				data.addColumn('number', "Detected");
+				data.addColumn('number', "Death");
+
+				data.addRows([
+						[new Date(2020, 2, 7), 1, 0],
+						[new Date(2020, 2, 8), 3, 0],
+						[new Date(2020, 2, 9), 3, 0],
+						[new Date(2020, 2, 10), 3, 0],
+						[new Date(2020, 2, 11), 3, 0],
+						[new Date(2020, 2, 12), 3, 0],
+						[new Date(2020, 2, 13), 3, 0],
+						[new Date(2020, 2, 14), 3, 0],
+						[new Date(2020, 2, 15), 3, 0],
+						[new Date(2020, 2, 16), 6, 0],
+						[new Date(2020, 2, 17), 8, 0],
+						[new Date(2020, 2, 18), 8, 1],
+						[new Date(2020, 2, 19), 11, 1],
+						[new Date(2020, 2, 20), 14, 1],
+						[new Date(2020, 2, 21), 24, 2],
+						[new Date(2020, 2, 22), 27, 2],
+				]);
+				var options = {
+					title: 'Rate the Day on a Scale of 1 to 10',
+					width: 900,
+					height: 500,
+					hAxis: {
+						format: 'MMM dd, yyyy',
+						gridlines: {count: 15}
+					},
+					vAxis: {
+						gridlines: {color: 'none'},
+						minValue: 0,
+			  		viewWindowMode: "explicit",
+						viewWindow:{ min: 0 }
+					},
+					curveType: 'function'
+				};
+
+				var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+				chart.draw(data, options);
+			}
 	body
 		block content

@@ -8,12 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/covid19', (req, res) => {
-  data.data().then(response => {
-    console.log(response);
-    res.render('covid19/index', {data: response});
-  }).catch(err => {
-    console.log("Error reading file.", err);
-  });
+  res.render('covid19/index', {data: data.fetch()});
 });
 
 module.exports = router;
