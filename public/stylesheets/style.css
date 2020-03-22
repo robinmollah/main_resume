@@ -21,6 +21,14 @@ h1.animBor:hover {
   display: none;
 }
 
+#experiences {
+  display: none;
+}
+
+#education {
+  display: none;
+}
+
 .first-name {
   color: #00796B;
   font: 14px 'Saira Condensed', sans-serif;

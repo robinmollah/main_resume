@@ -1,26 +1,27 @@
 extends layout
 
 block content
-  h1(class="animBor")
-    span(class="first-name")= "Robin "
-    span(class="last-name") Mollah
-  p.
-    I started coding from an early age because I believe through technology I can make a huge national and global impact.
-    I would love to be a contributor in creating a history of technology-based society.
-    Being part of something that makes an upgrade in any part of this world is the most desired dream of my life.
-  br
-  div(class="tabs")
-    div(class="tab tab-left tab-active" id="field-of-expertise-tab") Fields of expertise
-    div(class="tab tab-middle" id="experiences-tab") Experiences
-    div(class="tab tab-right" id="education-tab") Education
-  div(id="field-of-expertise")
-    include parts/resume/field-of-expertise.pug
-  div(id="experiences")
-    include parts/resume/experiences.pug
-  div(id="Education")
-    include parts/resume/education.pug
-  //- TODO Add skill icons
-  //- TODO Add Card animation
-  //- TODO Add short description
-  //- TODO Add social icons
-  //- TODO Add blogs
+	h1(class="animBor")
+		span(class="first-name")= "Robin "
+		span(class="last-name") Mollah
+	p.
+		I started coding from an early age because I believe through technology I can make a huge national and global impact.
+		I would love to be a contributor in creating a history of technology-based society.
+		Being part of something that makes an upgrade in any part of this world is the most desired dream of my life.
+	br
+	div(class="tabs")
+		div(class="tab tab-left" id="field-of-expertise-tab" section="field-of-expertise") Fields of expertise
+		div(class="tab tab-middle" id="experiences-tab" section="experiences") Experiences
+		div(class="tab tab-right" id="education-tab" section="education") Education
+	div(class="section" id="field-of-expertise")
+		include parts/resume/field-of-expertise.pug
+	div(class="section" id="experiences")
+		include parts/resume/experiences.pug
+	div(class="section" id="education")
+		include parts/resume/education.pug
+	script(type="text/javascript" src="/javascripts/resume.js")
+	//- TODO Add skill icons
+	//- TODO Add Card animation
+	//- TODO Add short description
+	//- TODO Add social icons
+	//- TODO Add blogs
