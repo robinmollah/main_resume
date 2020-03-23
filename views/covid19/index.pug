@@ -2,13 +2,14 @@ extends layout
 
 block content
 	span(class="head") Covid-19 Situation
-		img(src='./images/flag.svg' style="width: 2.5em")
+		img(src='./images/flag.svg' style="width: 2.5em; margin: 1em")
 	div(class="first-chart")
 		div(id='curve_chart', style="width: fit-content; height: 500px;")
 		div(class="first-info")
-			span Total Case
-			span 27
-			span Death
-			span 2
-			span Recovered
-			span 5
+			div(class="info-block")
+				div(class="total-case block") Total Case
+				div(class="total-case-n block") 33
+				div(class="death block") Death
+				div(class="death-n block") 3
+				div(class="recovered block") Recovered
+				div(class="recovered-n block") 5

@@ -17,7 +17,7 @@ html
 			function drawChart() {
 				var data = new google.visualization.DataTable();
 				data.addColumn('date', 'Date');
-				data.addColumn('number', "Detected");
+				data.addColumn('number', "Tested Positive");
 				data.addColumn('number', "Death");
 
 				data.addRows([
@@ -37,9 +37,10 @@ html
 						[new Date(2020, 2, 20), 14, 1],
 						[new Date(2020, 2, 21), 24, 2],
 						[new Date(2020, 2, 22), 27, 2],
+						[new Date(2020, 2, 23), 33, 3],
 				]);
 				var options = {
-					title: 'Rate the Day on a Scale of 1 to 10',
+					title: 'Corona virus',
 					width: 900,
 					height: 500,
 					hAxis: {
