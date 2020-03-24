@@ -7,8 +7,8 @@
 }
 
 .first-chart {
-    display: inline-flex;
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -35,11 +35,11 @@
 }
 
 .total-case {
-    background-color: blueviolet;
+    background-color: darkorange;
 }
 
 .total-case-n {
-    background-color: violet;
+    background-color: orange;
 }
 
 .death {
