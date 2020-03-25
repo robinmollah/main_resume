@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	div(class="jumbotron text-center") Covid-19 Situation
+		img(src='./images/flag.svg' style="width: 2.5em; margin: 1em")
+	div(class="row")
+		div(class="col-sm-8")
+			div(class="question-block text-center")
+				b(id="question" data-qid=1) Sample Question
+				input(class="form-control", type="text", id="answer")
+		div(class="col-sm-2 text-center align-middle")
+			button(id="skipButton", class="btn btn-secondary my-2 mx-2 align-middle") Skip
+		div(class="col-sm-2 text-center align-middle")
+			button(id="submitButton", class="btn btn-primary my-2 mx-2 align-middle") Submit
+	div(class="card", style="width: 18rem;")
+		img(src="./images/Android.png", class="card-img-top", alt="...")
+		div(class="card-body")
+			h5(class="card-title") Card title
+			p(class="card-text") Some quick example text to build on the card title and make up the bulk of the card's content.
+			a(href="#", class="btn btn-primary") Go somewhere
+	script(type="text/javascript", src="./javascripts/review/review.js")
