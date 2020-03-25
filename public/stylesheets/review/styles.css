@@ -1,6 +1,28 @@
 html {
     box-sizing: border-box;
 }
+
+body {
+    background-color: #e1bee7;
+}
+
+.jumbotron {
+    background-color: #9c27b0;
+    color: white;
+}
+
+b#question {
+    font-size: 1.6em;
+}
+
+textarea {
+    font-size: 1.4em;
+}
+
+button.btn {
+    font-size: 1.5em;
+}
+
 *, *:before, *:after {
     box-sizing: inherit;
 }

@@ -14,9 +14,10 @@ let questionId = 0;
 let questionElem = $("#question");
 questionElem.html(questions[questionId++]);
 $("#submitButton").click(function(){
-	questionElem.attr("data-qid", questionId);
+	answers[questionId-1] = $("#answer").val();
+	console.log(answers);
 	questionElem.html(questions[questionId++]);
-	console.log("value", $("#answer").val());
+	$("#answer").val("");
 });
 $("#skipButton").click(function(){
 	questionElem.html(questions[questionId++]);
