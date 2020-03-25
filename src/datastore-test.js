@@ -19,7 +19,6 @@ const getNames = () => {
 async function test()  {
 	await insertMyName({first_name: "Robin", last_name: "Mollah"});
 	await insertMyName({first_name: "Robin", last_name: "Easha"});
-	
 }
 
 test().then(response => {

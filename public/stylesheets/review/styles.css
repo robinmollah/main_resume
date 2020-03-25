@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: #4BEE9D;
+    background-image: linear-gradient(180deg, #08ff9b, #3d8a57);
 }
 
 .jumbotron {
@@ -30,4 +30,11 @@ button.btn {
 
 *, *:before, *:after {
     box-sizing: inherit;
+}
+
+.review-url {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

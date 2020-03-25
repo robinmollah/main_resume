@@ -32,7 +32,8 @@ function onClickCallback(skipped = false){
 		// TODO Here is your review link
 		let review_id = "sjdflkajsdf";
 		let thanks = $("<h2>Much appreciated.</h2>");
-		let link = $("<b>http://review.robin.engineer/" + review_id + "</b>");
+		let link = $("<span class='review-url'>http://review.robin.engineer/id/<span id='review_id'>"
+			+  review_id + "</span></span>");
 		let emoji = $("<img/>").attr("src", "./images/satisfied-emoji.png")
 			.attr("style", "width: 50%");
 		$("div.question-block").html(thanks);
@@ -48,13 +49,37 @@ function onClickCallback(skipped = false){
 	
 	if(questionId == questions.length){
 		reviewComplete = true;
-		$("#submitButton").text("Submit");
+		$("#submitButton").text("Submit").click(function(){
+			submitReview(answers);
+		});
 		$("#skipButton").fadeOut();
 	}
 }
 
 function setProgressBar(progress){
-	$("#progressbar").attr("aria-valuenow", progress).attr("style", "width: " + progress + "%").html(progress + "%");
+	$("#progressbar").attr("aria-valuenow", progress)
+		.attr("style", "width: " + progress + "%")
+		.html(progress + "%");
+}
+
+function submitReview(answers){
+	$.getJSON("http://jsonip.com/?callback=?", function (data) {
+		$("#review_id").text(btoa(data.ip));
+		$.ajax({
+			url: "/review/submit",
+			type: "POST",
+			data: JSON.stringify({answers: answers, id: data.ip}),
+			success: function(response){
+				console.log("Response", response);
+			},
+			error: function(error){
+				console.error("Error: ", error);
+			},
+			dataType: 'json',
+			contentType : 'application/json',
+			processData: false
+		});
+	});
 }
 
 
