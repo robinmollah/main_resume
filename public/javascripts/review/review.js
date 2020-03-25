@@ -16,7 +16,7 @@ let answers = [];
 let questionId = 0;
 let questionElem = $("#question");
 let reviewComplete = false;
-questionElem.html(questions[questionId++]);
+questionElem.html(questions[questionId]);
 
 
 $("#submitButton").click(function(){
@@ -27,33 +27,45 @@ $("#skipButton").click(function(){
 });
 
 function onClickCallback(skipped = false){
-	if(reviewComplete) {
+	if(questionId == questions.length + 1) {
 		// TODO Thanks for your feedback
 		// TODO Here is your review link
-		let review_id = "sjdflkajsdf";
+		answers[questionId] = skipped ? "Skipped" : $("#answer").val();
+		let review_id = "------";
 		let thanks = $("<h2>Much appreciated.</h2>");
 		let link = $("<span class='review-url'>http://review.robin.engineer/id/<span id='review_id'>"
 			+  review_id + "</span></span>");
 		let emoji = $("<img/>").attr("src", "./images/satisfied-emoji.png")
 			.attr("style", "width: 50%");
-		$("div.question-block").html(thanks);
+		$("#question").fadeOut("faster");
+		$("#answer").fadeOut("faster");
+		$("div.question-block").append(thanks);
 		$("div.question-block").append(link);
 		$("div.question-block").append(emoji);
 		$("#submitButton").fadeOut();
+		return;
 	}
-	answers[questionId-1] = skipped ? "Skipped" : $("#answer").val();
+	answers[questionId] = skipped ? "Skipped" : $("#answer").val();
 	console.log(answers);
 	questionElem.html(questions[questionId++]).fadeOut('fast').fadeIn('fast');
 	$("#answer").val("").fadeOut().fadeIn();
-	setProgressBar(Math.ceil((questionId/questions.length) * 100));
+	console.log(questionId, questionId/questions.length + 1);
+	setProgressBar(Math.ceil((questionId/(questions.length +1)) * 100));
 	
 	if(questionId == questions.length){
 		reviewComplete = true;
 		$("#submitButton").text("Submit").click(function(){
+			console.log(getAnswer().val(), answers);
+			console.log("Answer", $("#answer"));
+			answers[questionId] = skipped ? "Skipped" : $("#answer").val();
 			submitReview(answers);
 		});
 		$("#skipButton").fadeOut();
 	}
+}
+
+function getAnswer(){
+	return $("#answer");
 }
 
 function setProgressBar(progress){
