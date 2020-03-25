@@ -2,17 +2,20 @@ extends layout
 
 block content
 	div(class="jumbotron text-center")
-		h1 Your feedback for Robin Mollah
+		h1(class="header-text") Your feedback for Robin Mollah
 	div(class="row")
 		div(class="col-sm-8")
 			div(class="question-block text-center")
-				//- TODO show 1 out of 6 question progress bar
+				div(class="progress")
+					div(class="progress-bar", id="progressbar", role="progressbar", aria-valuenow="20",
+						aria-valuemin="0", aria-valuemax="100", style="width: 0%") 0%
 				b(id="question" data-qid=1) Sample Question
-				textarea(style="background-color: #f3e5f5;font-size: 1.4em;border: 2px solid black;", class="form-control", rows="4", id="answer")
+				textarea(style="background-color: #f3e5f5;font-size: 1.4em;border: 2px solid black;", class="form-control",
+					rows="4", id="answer")
 		div(class="col-sm-2 d-flex align-items-center justify-content-center")
 			button(id="skipButton", class="btn btn-secondary my-2 mx-2 align-middle") Skip
 		div(class="col-sm-2 d-flex align-items-center justify-content-center")
-			button(id="submitButton", class="btn btn-primary my-2 mx-2 align-middle") Submit
+			button(id="submitButton", class="btn btn-primary my-2 mx-2 align-middle") Next
 	div(class="card", style="width: 18rem;")
 		img(src="./images/Android.png", class="card-img-top", alt="...")
 		div(class="card-body")
