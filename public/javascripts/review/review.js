@@ -6,21 +6,27 @@ let questions = [
 	`If you could add one thing in ${name}'s life`,
 	`If you could change one thing in  ${name}'s life`,
 	`Something you don't like about ${name}`,
-	`Any secret for ${name}`
+	`Any secret for ${name}`,
+	`Frequently used words by ${name}`,
 ];
 let answers = [];
 
 let questionId = 0;
 let questionElem = $("#question");
 questionElem.html(questions[questionId++]);
-$("#submitButton").click(function(){
-	answers[questionId-1] = $("#answer").val();
+
+function onClickCallback(skipped = false){
+	answers[questionId-1] = skipped ? "Skipped" : $("#answer").val();
 	console.log(answers);
 	questionElem.html(questions[questionId++]);
 	$("#answer").val("");
+}
+
+$("#submitButton").click(function(){
+	onClickCallback();
 });
 $("#skipButton").click(function(){
-	questionElem.html(questions[questionId++]);
+	onClickCallback(true);
 });
 
 console.log("Questions: ", questions);
