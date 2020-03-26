@@ -15,7 +15,6 @@ let answers = [];
 
 let questionId = 0;
 let questionElem = $("#question");
-let reviewComplete = false;
 questionElem.html(questions[questionId]);
 
 
@@ -52,8 +51,7 @@ function onClickCallback(skipped = false){
 	console.log(questionId, questionId/questions.length + 1);
 	setProgressBar(Math.ceil((questionId/(questions.length +1)) * 100));
 	
-	if(questionId == questions.length){
-		reviewComplete = true;
+	if(questionId == questions.length + 1){
 		$("#submitButton").text("Submit").click(function(){
 			console.log(getAnswer().val(), answers);
 			console.log("Answer", $("#answer"));
@@ -76,11 +74,14 @@ function setProgressBar(progress){
 
 function submitReview(answers){
 	$.getJSON("http://jsonip.com/?callback=?", function (data) {
-		$("#review_id").text(btoa(data.ip));
+		let ip = data.ip.split(".")
+					.map(value => parseInt(value).toString(16))
+					.join("-");
+		$("#review_id").text(btoa(ip));
 		$.ajax({
 			url: "/review/submit",
 			type: "POST",
-			data: JSON.stringify({answers: answers, id: data.ip}),
+			data: JSON.stringify({answers: answers, id: ip}),
 			success: function(response){
 				console.log("Response", response);
 			},
