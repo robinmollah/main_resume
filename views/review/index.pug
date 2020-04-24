@@ -13,14 +13,19 @@ block content
 				textarea(style="background-color: #f3e5f5;font-size: 1.4em;border: 2px solid black;",
 					class="form-control",
 					rows="4", id="answer")
+				div(class="submitting")
+					div(class="spinner-grow spinner-grow-lg", role="status")
+						span(class="sr-only") Loading...
+					h3 Submitting
+				div(class="submit-success")
+					h2 Much appreciated.
+					span(class="review-url") http://review.robin.engineer/chat/
+						span(id='review_id') [LOADING]
+					img(src="/images/satisfied-emoji.png", style="width: 50%")
+				div(class="submit-error")
+					h2(style="color: red") Submission error
 		div(class="col-sm-2 d-flex align-items-center justify-content-center")
 			button(id="skipButton", class="btn btn-secondary my-2 mx-2 align-middle") Skip
 		div(class="col-sm-2 d-flex align-items-center justify-content-center")
 			button(id="submitButton", class="btn btn-primary my-2 mx-2 align-middle") Next
-	div(class="card", style="width: 18rem;")
-		img(src="./images/Android.png", class="card-img-top", alt="...")
-		div(class="card-body")
-			h5(class="card-title") Card title
-			p(class="card-text") Some quick example text to build on the card title and make up the bulk of the card's content.
-			a(href="#", class="btn btn-primary") Go somewhere
 	script(type="text/javascript", src="./javascripts/review/review.js")

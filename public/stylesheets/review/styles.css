@@ -3,12 +3,12 @@ html {
 }
 
 body {
-    background-image: linear-gradient(180deg, #08ff9b, #3d8a57);
+    background-image: linear-gradient(180deg, #6ba8a9, #9deced);
 }
 
 .jumbotron {
-    background-color: #2a6232;
-    color: white;
+    background-color: #1d4d4f;
+    color: #e5dfdf;
 }
 
 h1.header-text {
@@ -37,4 +37,16 @@ button.btn {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+div.submit-success {
+    display: none;
+}
+
+div.submit-error {
+    display: none;
+}
+
+div.submitting {
+    display: none;
 }

@@ -4,7 +4,14 @@ let data = require('../src/csv-parser');
 let insertReview = require('../src/submit_review').insertReview;
 
 router.get('/', function(req, res, next) {
-	res.render('index', {data: data.fetch()});
+	console.log(req.headers.host);
+	if(req.headers.host.indexOf("covid19") == 0){
+		res.render('covid19/index', {data: data.fetch()});
+	} else if(req.headers.host.indexOf("review") == 0){
+		res.render('review/index', {});
+	} else {
+		res.render('index', {data: data.fetch()});
+	}
 });
 
 router.get('/covid19', (req, res) => {
@@ -23,7 +30,14 @@ router.post('/review/submit', async (req, res) => {
 	}).catch(error => {
 		console.log("Submission error", error);
 	});
+});
 
+router.get('/review/chat/:id', (req, res) => {
+	res.json({message: "Chat is not initialised yet. Visit after 24 hours.", id: req.params.id});
+});
+
+router.get('/review/chat', (req, res) => {
+	res.json({message: "Chat is not initialised yet. Visit after 24 hours.", id: req.params.id});
 });
 
 module.exports = router;

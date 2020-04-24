@@ -1,6 +1,8 @@
 const {Datastore} = require('@google-cloud/datastore');
 
-const datastore = new Datastore();
+const datastore = new Datastore({
+	projectId: 'robinsajin',
+	keyFilename: './robinsajin-426baf1c4e48.json'});
 
 const insertMyName = name => {
 	return datastore.save({
@@ -17,10 +19,11 @@ const getNames = () => {
 };
 
 async function test()  {
-	await insertMyName({first_name: "Robin", last_name: "Mollah"});
+	insertMyName({first_name: "Robin", last_name: "Mollah"}).then(console.log);
 	await insertMyName({first_name: "Robin", last_name: "Easha"});
 }
 
+console.log("Inserting");
 test().then(response => {
 	console.log("Response", response);
 }).catch(error => {

@@ -26,35 +26,25 @@ $("#skipButton").click(function(){
 });
 
 function onClickCallback(skipped = false){
-	if(questionId == questions.length + 1) {
+	if(questionId == questions.length - 1) {
 		// TODO Thanks for your feedback
 		// TODO Here is your review link
 		answers[questionId] = skipped ? "Skipped" : $("#answer").val();
-		let review_id = "------";
-		let thanks = $("<h2>Much appreciated.</h2>");
-		let link = $("<span class='review-url'>http://review.robin.engineer/id/<span id='review_id'>"
-			+  review_id + "</span></span>");
-		let emoji = $("<img/>").attr("src", "./images/satisfied-emoji.png")
-			.attr("style", "width: 50%");
 		$("#question").fadeOut("faster");
 		$("#answer").fadeOut("faster");
-		$("div.question-block").append(thanks);
-		$("div.question-block").append(link);
-		$("div.question-block").append(emoji);
 		$("#submitButton").fadeOut();
+		$(".submitting").fadeIn();
 		return;
 	}
 	answers[questionId] = skipped ? "Skipped" : $("#answer").val();
-	console.log(answers);
-	questionElem.html(questions[questionId++]).fadeOut('fast').fadeIn('fast');
+	questionId++;
+	questionElem.html(questions[questionId]).fadeOut('fast').fadeIn('fast');
 	$("#answer").val("").fadeOut().fadeIn();
-	console.log(questionId, questionId/questions.length + 1);
-	setProgressBar(Math.ceil((questionId/(questions.length +1)) * 100));
+	setProgressBar(Math.ceil((questionId/(questions.length - 1)) * 100));
 	
-	if(questionId == questions.length + 1){
+	if(questionId == questions.length - 1){
 		$("#submitButton").text("Submit").click(function(){
 			console.log(getAnswer().val(), answers);
-			console.log("Answer", $("#answer"));
 			answers[questionId] = skipped ? "Skipped" : $("#answer").val();
 			submitReview(answers);
 		});
@@ -84,9 +74,12 @@ function submitReview(answers){
 			data: JSON.stringify({answers: answers, id: ip}),
 			success: function(response){
 				console.log("Response", response);
+				$(".submitting").fadeOut();
+				$(".submit-success").fadeIn();
 			},
 			error: function(error){
 				console.error("Error: ", error);
+				$(".submit-error").fadeIn();
 			},
 			dataType: 'json',
 			contentType : 'application/json',
