@@ -1,20 +1,31 @@
 body {
-  padding: 50px;
+  margin: 5%;
   font: 14px 'Saira', 'Roboto', "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: darkorchid;
 }
+
+a:hover {
+  color: aliceblue;
+}
+
+
 
 h1.animBor {
   font-size: 6em;
   margin: 0em;
   transition: border-bottom 0.5s;
+  text-align: center;
 }
 
 h1.animBor:hover {
 
+}
+
+table {
+  border-collapse: collapse;
 }
 
 #field-of-expertise {

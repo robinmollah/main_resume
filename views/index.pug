@@ -4,6 +4,8 @@ block content
 	h1(class="animBor")
 		span(class="first-name")= "Robin "
 		span(class="last-name") Mollah
+	br
+	include sections/quote
 	p.
 		I started coding from an early age because I believe through technology I can make a huge national and global impact.
 		I would love to be a contributor in creating a history of technology-based society.
@@ -20,6 +22,7 @@ block content
 	div(class="section" id="education")
 		include parts/resume/education.pug
 	script(type="text/javascript" src="/javascripts/resume.js")
+	script(type="text/javascript" src="/javascripts/quote.js")
 	//- TODO Add skill icons
 	//- TODO Add Card animation
 	//- TODO Add short description

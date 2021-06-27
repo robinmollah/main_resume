@@ -1,0 +1,46 @@
+div(id="quote-content", style="text-align: center")
+    div(class="palette-picker")
+        div(class="palette bg-blue")
+        div(class="palette bg-red")
+        div(class="palette bg-orange")
+        div(class="palette bg-green")
+    h1(id="quote")
+    h2(style="text-align: right", id="quote-author")
+style(type="text/css").
+    .palette-picker {
+        display: inline-flex;
+    }
+
+    .palette {
+        border: 2px solid lightgray;
+        margin: 2em;
+        width: 2em;
+        height: 2em;
+    }
+
+    .palette:hover {
+        border: 2px solid #898989;;
+    }
+
+    .bg-red {
+        background-color: rgba(208, 49, 49, 0.51);
+    }
+
+
+    .bg-green {
+        background-color: rgba(91, 208, 49, 0.51);
+    }
+
+    .bg-orange {
+        background-color: rgba(232, 200, 19, 0.51);
+    }
+
+    .bg-blue {
+        background-color: rgba(5, 108, 163, 0.51);
+    }
+
+    #quote-content {
+        border-radius: 1em;
+    }
+
+
