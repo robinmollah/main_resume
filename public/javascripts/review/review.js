@@ -41,7 +41,7 @@ function onClickCallback(skipped = false){
 	questionElem.html(questions[questionId]).fadeOut('fast').fadeIn('fast');
 	$("#answer").val("").fadeOut().fadeIn();
 	setProgressBar(Math.ceil((questionId/(questions.length - 1)) * 100));
-	
+
 	if(questionId == questions.length - 1){
 		$("#submitButton").text("Submit").click(function(){
 			console.log(getAnswer().val(), answers);
@@ -63,7 +63,7 @@ function setProgressBar(progress){
 }
 
 function submitReview(answers){
-	$.getJSON("http://jsonip.com/?callback=?", function (data) {
+	$.getJSON("https://jsonip.com/?callback=?", function (data) {
 		let ip = data.ip.split(".")
 					.map(value => parseInt(value).toString(16))
 					.join("-");
