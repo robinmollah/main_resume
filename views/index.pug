@@ -1,18 +1,23 @@
 extends layout
 
 block content
-	h1(class="animBor")
-		span(class="first-name")= "Robin "
-		span(class="last-name") Mollah
-	br
-	include sections/quote
-	p.
+	div(class="ek-page")
+		h1(class="animBor")
+			span(class="first-name")= "Robin "
+			span(class="last-name") Mollah
+		br
+		include sections/quote
+		div(id="next-page-holder")
+			button(id="next-page" href="#cv_content") &#11015;
+		div
+			span
+	p(id="cv_content").
 		I started coding from an early age because I believe through technology I can make a huge national and global impact.
 		I would love to be a contributor in creating a history of technology-based society.
 		Being part of something that makes an upgrade in any part of this world is the most desired dream of my life.
 	br
 	div(class="tabs")
-		div(class="tab tab-left" id="field-of-expertise-tab" section="field-of-expertise") Fields of expertise
+		div(class="tab tab-left" id="field-of-expertise-tab" section="field-of-expertise") Expertises
 		div(class="tab tab-middle" id="experiences-tab" section="experiences") Experiences
 		div(class="tab tab-right" id="education-tab" section="education") Education
 	div(class="section" id="field-of-expertise")
@@ -23,10 +28,44 @@ block content
 		include parts/resume/education.pug
 	script(type="text/javascript" src="/javascripts/resume.js")
 	script(type="text/javascript" src="/javascripts/quote.js")
+	script.
+		document.getElementById("next-page").addEventListener("click", function(){
+			document.getElementById("cv_content").scrollIntoView({behavior: "smooth", inline: "nearest"});
+		});
 	//- TODO Add skill icons
 	//- TODO Add Card animation
 	//- TODO Add short description
 	//- TODO Add social icons
 	//- TODO Add blogs
+	style.
+		.ek-page {
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+		}
+
+		#next-page, #next-page:active {
+			color: black;
+			font-size: 2em;
+			text-align: center;
+			position: relative;
+			animation: next-page 1.5s linear 0s infinite;
+		}
+
+		#next-page-holder {
+			text-align: center;
+		}
+
+		@keyframes next-page {
+			0% { top: 0em;}
+
+			30% {top: 2em;}
+			100% {top: 0em}
+		}
+
+		#cv_content {
+			padding: 1em;
+		}
 	small.
 		updated

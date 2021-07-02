@@ -23,7 +23,7 @@ function activateTab(target = document.getElementById("field-of-expertise-tab"))
 
 
 for(let elem of sections){
-	elem.addEventListener("click", (elem) => {
+	elem.addEventListener("mouseenter", (elem) => {
 		activateTab(elem.target);
 	})
 }
