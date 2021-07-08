@@ -7,10 +7,29 @@ block content
 			span(class="last-name") Mollah
 		br
 		include sections/quote
-		div(id="next-page-holder")
-			button(id="next-page" href="#cv_content") &#11015;
+		div(id="next-page-holder" href="#cv_content")
+			div(id="next-page" href="#cv_content") &#11015;
 		div
 			span
+	div(class="ek-page bg-invert" style="display: block;text-align: center;")
+		div(class="search-box")
+			h1(class="animBor") Search My Skills
+			input(type="text" id="idSearchInput" placeholder="Search here....")
+		br
+		div
+			div(class="list-holder")
+				div(class="list")
+					p Cloud Computing
+					p(class="selected") Programming Languages
+					p Game Engines
+					p App Development
+			div(class="list-holder")
+				div(class="list")
+					p(class="selected") JavaScript
+					p Java
+					p Python
+					p Kotlin
+					p TypeScript
 	p(id="cv_content").
 		I started coding from an early age because I believe through technology I can make a huge national and global impact.
 		I would love to be a contributor in creating a history of technology-based society.
@@ -42,7 +61,12 @@ block content
 			height: 100vh;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-around;
+			justify-content: space-evenly;
+		}
+
+		.bg-invert {
+			color: white;
+			background: #99BAE1;
 		}
 
 		#next-page, #next-page:active {
@@ -66,6 +90,68 @@ block content
 
 		#cv_content {
 			padding: 1em;
+		}
+
+		div.search-box {
+			text-align: center;
+		}
+
+		input#idSearchInput {
+			color: #99BAE1;
+			padding: 0.5em;
+			width: 50%;
+			height: 2em;
+			font-weight: bold;
+			border: 1px solid steelblue;
+		}
+
+		input#idSearchInput:focus {
+			border: 2px solid steelblue;
+			outline: none;
+		}
+
+		button {
+			background: steelblue;
+			color: white;
+			margin: 1em;
+			width: 20%;
+			height: 40px;
+			border: none;
+			border-radius: 0.5em;
+			transition: font-size 0.3s;
+		}
+
+		button:hover {
+			font-size: 32px;
+		}
+
+		.list {
+			color: steelblue;
+			background: #dcd9d9;
+			text-align: left;
+			width: fit-content;
+			border: 1px solid steelblue;
+			margin: auto;
+		}
+
+		.list p {
+			transition: background-color, color 0.3s;
+			padding: 1em 1em;
+			margin: 0em;
+		}
+
+		.list p:hover {
+			background: #6ba8a9;
+			color: white;
+		}
+
+		.list p.selected {
+			background: #6ba8a9;
+			color: white;
+		}
+
+		div.list-holder {
+			display: inline-block;
 		}
 	small.
 		updated
