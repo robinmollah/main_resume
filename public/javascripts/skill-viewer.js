@@ -1,5 +1,6 @@
 const skillViewer = document.getElementById("skill-viewer");
 const list2 = document.getElementById("list2");
+const list1 = document.getElementById("list1");
 let skills;
 let previousTarget;
 
@@ -31,7 +32,10 @@ function populateList3(event){
 	cleanupList(2);
 	event.target.setAttribute("class", "selected");
 	let list3 = document.getElementById("list3");
-	list3.appendChild(skillItem("SOmething"));
+	let firstKey = list1.querySelectorAll("p.selected")[0].innerText;
+	for(let item of skills[firstKey][event.target.innerText]){
+		list3.appendChild(skillItem(item));
+	}
 }
 
 function addList3(){
