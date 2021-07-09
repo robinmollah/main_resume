@@ -13,40 +13,34 @@ block content
 			span
 	div(class="ek-page bg-invert" style="display: block;text-align: center;")
 		div(class="search-box")
-			h1(class="animBor") Search My Skills
+			h1.animBor(style="font-size: 2.5em") Search My Skills
 			input(type="text" id="idSearchInput" placeholder="Search here....")
 		br
-		div
+		div#skill-viewer
 			div(class="list-holder")
 				div(class="list")
-					p Cloud Computing
-					p(class="selected") Programming Languages
-					p Game Engines
-					p App Development
-			div(class="list-holder")
-				div(class="list")
-					p(class="selected") JavaScript
-					p Java
-					p Python
-					p Kotlin
-					p TypeScript
+					for skill, key in skillsets
+						p.skill-item= key
+			div.list-holder
+				div.list#list2
 	p(id="cv_content").
 		I started coding from an early age because I believe through technology I can make a huge national and global impact.
 		I would love to be a contributor in creating a history of technology-based society.
 		Being part of something that makes an upgrade in any part of this world is the most desired dream of my life.
 	br
-	div(class="tabs")
-		div(class="tab tab-left" id="field-of-expertise-tab" section="field-of-expertise") Expertises
+	div.tabs
+		div.tab.tab-left#field-of-expertise-tab(section="field-of-expertise") Expertises
 		div(class="tab tab-middle" id="experiences-tab" section="experiences") Experiences
 		div(class="tab tab-right" id="education-tab" section="education") Education
-	div(class="section" id="field-of-expertise")
+	div(class="section")#field-of-expertise
 		include parts/resume/field-of-expertise.pug
-	div(class="section" id="experiences")
+	div(class="section")#experiences
 		include parts/resume/experiences.pug
-	div(class="section" id="education")
+	div(class="section")#education
 		include parts/resume/education.pug
 	script(type="text/javascript" src="/javascripts/resume.js")
 	script(type="text/javascript" src="/javascripts/quote.js")
+	script(type="text/javascript" src="/javascripts/skill-viewer.js")
 	script.
 		document.getElementById("next-page").addEventListener("click", function(){
 			document.getElementById("cv_content").scrollIntoView({behavior: "smooth", inline: "nearest"});
@@ -129,9 +123,8 @@ block content
 			color: steelblue;
 			background: #dcd9d9;
 			text-align: left;
-			width: fit-content;
+			width: 25vw;
 			border: 1px solid steelblue;
-			margin: auto;
 		}
 
 		.list p {
@@ -151,7 +144,11 @@ block content
 		}
 
 		div.list-holder {
-			display: inline-block;
+		}
+
+		div#skill-viewer {
+			display: flex;
+			justify-content: center;
 		}
 	small.
 		updated

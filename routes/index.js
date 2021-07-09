@@ -1,7 +1,9 @@
 let express = require('express');
 let router = express.Router();
 let data = require('../src/csv-parser');
+let skills = require('../src/data/skills');
 let insertReview = require('../src/submit_review').insertReview;
+
 
 router.get('/', function(req, res, next) {
 	console.log(req.headers.host);
@@ -10,7 +12,9 @@ router.get('/', function(req, res, next) {
 	} else if(req.headers.host.indexOf("review") == 0){
 		res.render('review/index', {});
 	} else {
-		res.render('index', {data: data.fetch()});
+		res.render('index', {
+			skillsets: skills
+		});
 	}
 });
 
