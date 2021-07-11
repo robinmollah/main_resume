@@ -1,0 +1,102 @@
+div.bg-greenish.ek-page(style="display: block;text-align: center;")#skill-search
+    div.search-box
+        h1.animBor(style="font-size: 2.5em") Projects
+    br
+    -
+        let projects = [
+            {
+                name: "1971 : Hit & Run",
+                thumbnail: 'images/1971-hit-n-run-icon.webp',
+                video: '',
+                type: "Android Game",
+                skills: [
+                    'LibGdx',
+                    'Java',
+                    'Eclipse',
+                    'Google Play Services',
+                    'Android',
+                    'Firebase',
+                    'Blender',
+                    'Gimp'
+                ],
+                date: '2017',
+                link: "https://play.google.com/store/apps/details?id=net.properbd.hitnrun",
+                description: "Before getting admitted for Bachelors I have created this game. Back then smartphones " +
+                        "didn't have much RAM and powerful CPU. It was a great experience to make resource sensitive game. Saving every milliseconds was a challenge. "
+            }, {
+                name: "BracU Bot",
+                thumbnail: 'images/bracu-bot-icon.png',
+                video: '',
+                type: "Chatbot",
+                skills: [
+                    'NodeJS',
+                    "Regex",
+                    "Google App Engine",
+                    "FireStore",
+                    "DataStore",
+                    "MySQL",
+                    "NLP",
+                    "IDE"
+                ],
+                date: '2019',
+                link: "https://m.me/bracubot",
+                description: ""
+            }, {
+                name: "Swopno Keyboard",
+                thumbnail: 'images/swopno-keyboard-icon.webp',
+                video: '',
+                type: "Android App",
+                skills: [
+                    'Android',
+                    "Java",
+                    "Eclipse"
+                ],
+                date: '2016',
+                link: "https://play.google.com/store/apps/details?id=net.properbd.swopnoboard",
+                description: ""
+            },
+        ]
+    div#project-showcase
+        each project,i in projects
+            div.project-card
+                img(src=project.thumbnail).project-icon
+                a(href=project.link)
+                    h2= project.name
+                h3 Published: #{project.date}
+script(src="javascripts/project-showcase.js")
+
+style.
+    .bg-greenish {
+        background: #8e9d86;
+        height: auto !important;
+    }
+
+    .project-icon {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .project-card {
+        border: 1px solid #503f3f;
+        border-radius: 1em;
+        transition: background 0.3s;
+        width: 30%;
+        max-width: 230px;
+        margin: 1em;
+    }
+
+    .project-card:hover {
+        background: #99BAE1;
+    }
+
+    #project-showcase {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #project-showcase {
+            flex-direction: row;
+        }
+    }
