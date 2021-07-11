@@ -9,7 +9,13 @@
       "DynamoDB",
       "Chime SDK",
       "Route 53",
-      "LightSail"
+      "LightSail",
+      "CloudTrail",
+      "EventBridge",
+      "ApiGateway"
+    ],
+    "Google Cloud Platform": [
+      "AppEngine"
     ],
     "Firebase": [
       "Firebase Auth",

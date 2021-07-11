@@ -7,22 +7,11 @@ block content
 			span(class="last-name") Mollah
 		br
 		include sections/quote
-		div(id="next-page-holder" href="#cv_content")
-			div(id="next-page" href="#cv_content") &#11015;
+		div(id="next-page-holder")
+			div(id="next-page") &#11015;
 		div
 			span
-	div(class="ek-page bg-invert" style="display: block;text-align: center;")
-		div(class="search-box")
-			h1.animBor(style="font-size: 2.5em") Search My Skills
-			input(type="text" id="idSearchInput" placeholder="Search here....")
-		br
-		div#skill-viewer
-			div(class="list-holder")
-				div.list#list1
-					for skill, key in skillsets
-						p.skill-item= key
-			div.list-holder
-				div.list#list2
+	include parts/resume/search-skill.pug
 	p(id="cv_content").
 		I started coding from an early age because I believe through technology I can make a huge national and global impact.
 		I would love to be a contributor in creating a history of technology-based society.
@@ -43,7 +32,7 @@ block content
 	script(type="text/javascript" src="/javascripts/skill-viewer.js")
 	script.
 		document.getElementById("next-page").addEventListener("click", function(){
-			document.getElementById("cv_content").scrollIntoView({behavior: "smooth", inline: "nearest"});
+			document.getElementById("skill-search").scrollIntoView({behavior: "smooth", inline: "nearest"});
 		});
 	//- TODO Add skill icons
 	//- TODO Add Card animation
@@ -58,51 +47,22 @@ block content
 			justify-content: space-evenly;
 		}
 
-		.bg-invert {
-			color: white;
-			background: #99BAE1;
-		}
-
 		#next-page, #next-page:active {
 			color: black;
 			font-size: 2em;
 			text-align: center;
 			position: relative;
-			animation: next-page 1.5s linear 0s infinite;
 		}
 
 		#next-page-holder {
 			text-align: center;
 		}
 
-		@keyframes next-page {
-			0% { top: 0em;}
-
-			30% {top: 2em;}
-			100% {top: 0em}
-		}
 
 		#cv_content {
 			padding: 1em;
 		}
 
-		div.search-box {
-			text-align: center;
-		}
-
-		input#idSearchInput {
-			color: #99BAE1;
-			padding: 0.5em;
-			width: 50%;
-			height: 2em;
-			font-weight: bold;
-			border: 1px solid steelblue;
-		}
-
-		input#idSearchInput:focus {
-			border: 2px solid steelblue;
-			outline: none;
-		}
 
 		button {
 			background: steelblue;
@@ -124,6 +84,7 @@ block content
 			background: #dcd9d9;
 			text-align: left;
 			width: 25vw;
+			min-width: 170px;
 			border: 1px solid steelblue;
 		}
 
@@ -143,12 +104,5 @@ block content
 			color: white;
 		}
 
-		div.list-holder {
-		}
-
-		div#skill-viewer {
-			display: flex;
-			justify-content: center;
-		}
 	small.
 		updated

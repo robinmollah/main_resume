@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "deploy": "gcloud app deploy"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "deploy": "gcloud app deploy",
+    "logs": "gcloud app logs tail -s default"
   },
   "dependencies": {
     "@google-cloud/datastore": "^5.1.0",

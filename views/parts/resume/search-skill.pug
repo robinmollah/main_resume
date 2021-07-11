@@ -1,0 +1,47 @@
+div.ek-page.bg-invert(style="display: block;text-align: center;")#skill-search
+    div.search-box
+        h1.animBor(style="font-size: 2.5em") Search My Skills
+        input(type="text" placeholder="Search here....")#idSearchInput
+    br
+    div#skill-viewer
+        div.list-holder
+            div.list#list1
+                for skill, key in skillsets
+                    p.skill-item= key
+        div.list-holder
+            div.list#list2
+
+style.
+    .bg-invert {
+        color: white;
+        background: #99BAE1;
+    }
+
+
+    div.search-box {
+        text-align: center;
+    }
+
+
+    input#idSearchInput {
+        color: #99BAE1;
+        padding: 0.5em;
+        width: 50%;
+        height: 2em;
+        font-weight: bold;
+        border: 1px solid steelblue;
+    }
+
+    input#idSearchInput:focus {
+        border: 2px solid steelblue;
+        outline: none;
+    }
+
+
+    div.list-holder {
+    }
+
+    div#skill-viewer {
+        display: flex;
+        justify-content: center;
+    }
