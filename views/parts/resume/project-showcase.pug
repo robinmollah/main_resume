@@ -17,7 +17,10 @@ div.bg-greenish.ek-page(style="display: block;text-align: center;")#skill-search
                     'Android',
                     'Firebase',
                     'Blender',
-                    'Gimp'
+                    'Gimp',
+                    'Android ADT',
+                    'Android AAR',
+                    'Maven',
                 ],
                 date: '2017',
                 link: "https://play.google.com/store/apps/details?id=net.properbd.hitnrun",
@@ -25,7 +28,7 @@ div.bg-greenish.ek-page(style="display: block;text-align: center;")#skill-search
                         "didn't have much RAM and powerful CPU. It was a great experience to make resource sensitive game. Saving every milliseconds was a challenge. "
             }, {
                 name: "BracU Bot",
-                thumbnail: 'images/bracu-bot-icon.png',
+                thumbnail: 'images/bracu-bot-icon.webp',
                 video: '',
                 type: "Chatbot",
                 skills: [
@@ -36,7 +39,7 @@ div.bg-greenish.ek-page(style="display: block;text-align: center;")#skill-search
                     "DataStore",
                     "MySQL",
                     "NLP",
-                    "IDE"
+                    "IntelliJ IDEA"
                 ],
                 date: '2019',
                 link: "https://m.me/bracubot",
@@ -62,23 +65,27 @@ div.bg-greenish.ek-page(style="display: block;text-align: center;")#skill-search
             },
         ]
     div.project-showcase
-        div#project-showcase-bar
-            each project,i in projects
-                div.project-card
-                    img(src=project.thumbnail).project-icon
-                    a(href=project.link)
+        each project, i in projects
+            div.project-detail
+                    img(src=project.thumbnail alt=project.name).img-detail-icon
+                    br
+                    div(style="text-align: left;margin-left: 1em;")
                         h2= project.name
-                    h3 Published: #{project.date}
-        div.project-detail
-            img(src=projects[0].thumbnail alt=projects[0].name)
-            div(style="text-align: left")
-                h2= projects[0].name
-                b= projects[0].type
-                br
-                each skill in projects[0].skills
-                    span= skill + ","
-                br
-                span= projects[0].description
+                        br
+                        b Category:
+                        span= " " + project.type
+                        br
+                        br
+                        b Published:
+                        span= " " + project.date
+                        br
+                        br
+                        b Skills:
+                        each skill in project.skills
+                            span= " " + skill + ","
+                        br
+                        br
+                        span= project.description
 
 script(src="javascripts/project-showcase.js")
 
@@ -89,40 +96,30 @@ style.
         min-height: 100vh;
     }
 
-    .project-showcase {
+    .project-showcase, .project-detail {
         display: flex;
-    }
-
-    .project-icon {
-        max-height: 100%;
-        max-width: 100%;
-    }
-
-    .project-card {
-        border: 1px solid #503f3f;
-        border-radius: 1em;
-        transition: background 0.3s;
-        max-width: 230px;
-        margin: 1em;
-    }
-
-    .project-card:hover {
-        background: #99BAE1;
-    }
-
-    #project-showcase-bar {
-        overflow: scroll;
-        height: 80vh;
-        max-width: 240px;
-    }
-
-    .project-detail img {
-        max-width: 40%;
-        max-height: 40%;
     }
 
     .project-detail {
-        display: flex;
+        margin-bottom: 3em;
+        box-shadow: 1px 1px 5px #394732;
+    }
+
+    .project-detail:hover {
+        box-shadow: 1px 1px 10px #394732;
+    }
+
+
+    @media only screen and (max-width: 520px) {
+        .project-detail {
+            display: block;
+        }
+
+    }
+
+    .project-detail img {
+        max-width: 330px;
+        max-height: 330px;
     }
 
     ::-webkit-scrollbar {
@@ -141,13 +138,6 @@ style.
         background: #555;
     }
 
-    #project-showcase-bar {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        height: auto;
-        max-width: 100%;
-    }
 
     .project-showcase {
         display: block;
