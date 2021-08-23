@@ -3,38 +3,29 @@
 /**
  * Module dependencies.
  */
-const app = require('../app');
-const debug = require('debug')('robinsajin.appspot.com:server');
-const http = require('http');
-const https = require('https');
-const fs = require('fs');
-const path = require("path");
+
+var app = require('../app');
+var debug = require('debug')('robinsajin.appspot.com:server');
+var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || '8082');
+
+var port = normalizePort(process.env.PORT || '8082');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(app);
-console.log(path.join(__dirname, "../src/certificates/privkey1.pem"));
-const httpsServer = https.createServer({
-  key: fs.readFileSync(path.join(__dirname, "../src/certificates/privkey1.pem")),
-  cert: fs.readFileSync(path.join(__dirname, "../src/certificates/fullchain1.pem"))
-}, app);
+
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
-httpsServer.listen(443, () => {
-  console.log('HTTPS Server running on port 443');
-});
-
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -43,7 +34,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  const port = parseInt(val, 10);
+  var port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -67,9 +58,9 @@ function onError(error) {
     throw error;
   }
 
-  const bind = typeof port === 'string'
-      ? 'Pipe ' + port
-      : 'Port ' + port;
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -91,9 +82,9 @@ function onError(error) {
  */
 
 function onListening() {
-  const addr = server.address();
-  const bind = typeof addr === 'string'
-      ? 'pipe ' + addr
-      : 'port ' + addr.port;
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }

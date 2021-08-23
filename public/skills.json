@@ -15,8 +15,7 @@
       "ApiGateway"
     ],
     "Google Cloud Platform": [
-      "AppEngine",
-      "ComputeEngine"
+      "AppEngine"
     ],
     "Firebase": [
       "Firebase Auth",
