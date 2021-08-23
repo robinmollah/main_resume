@@ -6,6 +6,7 @@ let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
+let urlRouter = require('./src/url-shortener/router');
 
 let app = express();
 app.enable('trust proxy');
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', urlRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

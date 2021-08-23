@@ -2,3 +2,5 @@
 node_modules/
 *.iml
 robinsajin.*.json
+ServiceAccount.json
+*.lock
