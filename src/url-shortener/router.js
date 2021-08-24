@@ -28,7 +28,7 @@ router.get('/url/list', async (req, res) => {
 
 // SET short_url for a long_URL
 router.post('/url', async (req, res) => {
-	const trail = makeid(8);
+	const trail = req.body.short_url || makeid(8);
 
 	const data = {
 		long_url: req.body.long_url,
@@ -46,16 +46,42 @@ router.post('/url', async (req, res) => {
 
 // UPDATE long_url
 router.patch('/url/:short_url', (req, res) => {
-	res.json({
-		short_url: req.params.short_url,
-		long_url: "https://google.com"
+	const db_result = db.collection('url-shortener')
+		.doc(req.params.short_url)
+		.update({
+			long_url: req.body.long_url
+		});
+	db_result.then(() => {
+		console.log(req.params.short_url, req.body.long_url);
+		res.json({
+			statue: true
+		});
+	}).catch(err => {
+		console.error(err.code);
+		if(err.code === 5){
+			res.json({
+				status: false,
+				message: "There is no short url for " + req.params.short_url
+			})
+		} else {
+			res.redirect("https://robin.engineer");
+		}
 	});
 });
 
 // GET long_url
-router.get('/url/:short_url', (req, res) =>{
-	res.json({
-		short_url: req.params.short_url
+router.get('/url/:short_url', async (req, res) =>{
+	const db_result = db.collection('url-shortener').doc(req.params.short_url).get();
+	db_result.then(doc => {
+		console.log(doc.data().long_url, req.params.short_url);
+		let data = doc.data();
+		if(!data){
+			res.redirect("https://robin.engineer");
+		} else {
+			res.redirect(data.long_url);
+		}
+	}).catch(err => {
+		res.redirect("https://robin.engineer");
 	});
 });
 
