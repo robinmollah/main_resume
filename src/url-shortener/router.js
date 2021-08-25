@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const isUri = require('valid-url').isUri;
 
 function makeid(length) {
 	let result = '';
@@ -30,18 +31,37 @@ router.get('/url/list', async (req, res) => {
 router.post('/url', async (req, res) => {
 	const trail = req.body.short_url || makeid(8);
 
+	if(!isUri(req.body.long_url)){
+		res.json({
+			status: false,
+			message: "Not a valid URL"
+		});
+		console.log(req.body);
+		return;
+	}
 	const data = {
 		long_url: req.body.long_url,
 		short_url: trail,
 		created_at: Date.now()
 	};
 
-	const db_result = await db.collection('url-shortener').doc(trail).set(data);
-	console.log("SET ", db_result);
-	res.json({
-		short_url: trail,
-		long_url: req.body.long_url
-	});
+	db.collection('url-shortener')
+		.doc(trail)
+		.set(data)
+		.then(db => {
+			console.log("SET ", db);
+			res.json({
+				short_url: trail,
+				long_url: req.body.long_url
+			});
+		})
+		.catch(err => {
+			console.error(err);
+			res.json({
+				status: false,
+				message: err.message
+			});
+		})
 });
 
 // UPDATE long_url
