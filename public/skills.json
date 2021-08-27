@@ -6,16 +6,17 @@
       "EC2",
       "WaveLength",
       "S3",
-      "DynamoDB",
+      "SNS, SQS, SES",
       "Chime SDK",
       "Route 53",
       "LightSail",
       "CloudTrail",
-      "EventBridge",
-      "ApiGateway"
+      "ApiGateway, EventBridge"
     ],
     "Google Cloud Platform": [
-      "AppEngine"
+      "AppEngine",
+      "Compute Engine",
+      "Datastore"
     ],
     "Firebase": [
       "Firebase Auth",
@@ -34,7 +35,9 @@
       "CSS",
       "JavaScript",
       "ReactJS",
-      "VueJS"
+      "VueJS",
+      "Pug",
+      "EJS"
     ],
     "Frameworks": [
       "Laravel",
