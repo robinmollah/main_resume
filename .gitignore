@@ -4,3 +4,4 @@ node_modules/
 robinsajin.*.json
 ServiceAccount.json
 *.lock
+src/hosting/sites

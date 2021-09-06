@@ -4,10 +4,13 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let cors = require('cors');
+const fileUpload = require('express-fileupload');
+
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let urlRouter = require('./src/url-shortener/router');
+let hostingRouter = require('./src/hosting/router');
 
 let app = express();
 app.enable('trust proxy');
@@ -22,9 +25,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(fileUpload({
+  createParentPath: true,
+  limits: {
+    fileSize: 1024 * 1024 * 10 // 10 MB
+  },
+  abortOnLimit: true
+}));
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api', urlRouter);
+app.use('/api/hosting', hostingRouter);
+app.use('/api/url', urlRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
