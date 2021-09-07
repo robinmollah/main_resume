@@ -4,11 +4,10 @@ const HOSTING_DIR = '/sites/';
 const path = require('path');
 const unzipper = require('unzipper');
 const fs = require('fs');
+const db = require('../db');
 /*
  * Root path: SERVER/api/hosting
  */
-
-
 
 router.get('/index', (req, res) => {
 	res.send("hello world");

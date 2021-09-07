@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let data = require('../src/csv-parser');
 let skills = require('../src/data/skills');
+const db = require('../src/db');
 let insertReview = require('../src/submit_review').insertReview;
 
 
@@ -42,6 +43,24 @@ router.get('/review/chat/:id', (req, res) => {
 
 router.get('/review/chat', (req, res) => {
 	res.json({message: "Chat is not initialised yet. Visit after 24 hours.", id: req.params.id});
+});
+
+
+// GET long_url
+
+router.get('/s/:short_url', async (req, res) =>{
+	const db_result = db.collection('url-shortener').doc(req.params.short_url).get();
+	db_result.then(doc => {
+		console.log(doc.data().long_url, req.params.short_url);
+		let data = doc.data();
+		if(!data){
+			res.redirect("https://robin.engineer");
+		} else {
+			res.redirect(data.long_url);
+		}
+	}).catch(err => {
+		res.redirect("https://robin.engineer");
+	});
 });
 
 module.exports = router;

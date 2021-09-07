@@ -89,20 +89,4 @@ router.patch('/url/:short_url', (req, res) => {
 	});
 });
 
-// GET long_url
-router.get('/url/:short_url', async (req, res) =>{
-	const db_result = db.collection('url-shortener').doc(req.params.short_url).get();
-	db_result.then(doc => {
-		console.log(doc.data().long_url, req.params.short_url);
-		let data = doc.data();
-		if(!data){
-			res.redirect("https://robin.engineer");
-		} else {
-			res.redirect(data.long_url);
-		}
-	}).catch(err => {
-		res.redirect("https://robin.engineer");
-	});
-});
-
 module.exports = router;
