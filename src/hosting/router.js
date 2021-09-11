@@ -38,7 +38,8 @@ router.post("/upload", (req, res) => {
 		}
 		fs.createReadStream(location)
 			.pipe(unzipper.Extract({ path: directory }));
-		return res.send({ status: "true", path: location });
+		return res.send({ status: "true",
+			path: location, user_id: user_id });
 	})
 });
 
