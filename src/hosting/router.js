@@ -31,6 +31,8 @@ router.post("/upload", (req, res) => {
 	const user_id = req.body.user_id;
 	const directory = __dirname + HOSTING_DIR + user_id;
 	const location = directory + ".zip";
+	let nginxConfigFile = "/home/ubuntu/nginx/hosting/" + req.body.user_id + ".conf";
+
 
 	file.mv(location, (err) => {
 		if(err){
@@ -38,9 +40,26 @@ router.post("/upload", (req, res) => {
 		}
 		fs.createReadStream(location)
 			.pipe(unzipper.Extract({ path: directory }));
-		return res.send({ status: "true",
+		res.send({ status: "true",
 			path: location, user_id: user_id });
-	})
+	});
+	fs.copyFile("/home/ubuntu/nginx/hosting/template",
+		nginxConfigFile,
+		(err) => {
+			if(err){
+				console.error(`Error copying file`, err);
+			}
+			fs.readFile(nginxConfigFile, 'utf8', function (err,data) {
+				if (err) {
+					return console.log(err);
+				}
+				let result = data.replace("%subdomain%", req.body.user_id);
+
+				fs.writeFile(nginxConfigFile, result, 'utf8', function (err) {
+					if (err) return console.log(err);
+				});
+			});
+		});
 });
 
 // Reference: https://sebhastian.com/express-fileupload/
