@@ -5,6 +5,7 @@ const path = require('path');
 const unzipper = require('unzipper');
 const fs = require('fs');
 const db = require('../db');
+const child_exec = require('child_process').exec;
 /*
  * Root path: SERVER/api/hosting
  */
@@ -53,10 +54,13 @@ router.post("/upload", (req, res) => {
 				if (err) {
 					return console.log(err);
 				}
-				let result = data.replace("%subdomain%", req.body.user_id);
+				let result = data.replace(/%subdomain%/g, req.body.user_id);
 
 				fs.writeFile(nginxConfigFile, result, 'utf8', function (err) {
 					if (err) return console.log(err);
+					child_exec("sudo /etc/init.d/nginx reload", (err, stderr, stdout) => {
+						console.log(err, stderr, stdout);
+					})
 				});
 			});
 		});
