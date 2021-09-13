@@ -1,63 +1,37 @@
 module.exports = {
   "Cloud Service Provider": {
-    "AWS": [
+    AWS: [
       "Lambda",
       "CloudFormation",
-      "EC2",
+      "EC2, LightSail",
       "WaveLength",
       "S3",
-      "DynamoDB",
+      "SNS, SQS, SES",
       "Chime SDK",
       "Route 53",
-      "LightSail"
+      "CloudTrail",
+      "ApiGateway",
     ],
-    "Firebase": [
-        "Firebase Auth",
-        "Functions",
-        "Firestore",
-        "Datastore",
-        "Serverless"
+    "Google Cloud Platform": ["AppEngine", "Compute Engine", "Datastore"],
+    Firebase: [
+      "Firebase Auth",
+      "Functions",
+      "Firestore",
+      "Datastore",
+      "Serverless",
     ],
-    "Azure": [
-        "VM"
-    ]
+    Azure: ["VM"],
   },
-  "Web": {
-    "UI": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "ReactJS",
-      "VueJS"
-    ],
-    "Frameworks": [
-      "Laravel",
-      "Express",
-      "LuCi"
-    ],
-    "Servers": [
-      "Nginx",
-      "S3",
-      "Lambda",
-      "Firebase web app"
-    ],
-    "Plain TCP": [
-      "Ability to make server from HTTP server using raw TCP in Java, NodeJs, Python"
-    ]
+  Web: {
+    UI: ["HTML", "CSS", "JavaScript", "ReactJS", "VueJS", "Pug", "EJS"],
+    Frameworks: ["Laravel", "Express", "LuCi"],
+    Servers: ["Nginx", "S3", "Lambda", "Firebase web app"],
+    "Plain TCP": ["Java", "NodeJs", "Python"],
   },
-  "Languages": [
-    "JavaScript",
-    "Java",
-    "C#",
-    "Kotlin",
-    "Python"
-  ],
-  "Bash Scripting": [
-    "Fan of scripting",
-    "Process management",
-    "AWS CLI"
-  ],
-  "DevOps": [
+  Applications: ["Android", "React Native"],
+  Languages: ["JavaScript", "Java", "C#", "Kotlin", "Python"],
+  "Bash Scripting": ["Fan of scripting", "Process management", "AWS CLI"],
+  DevOps: [
     "Nginx",
     "Docker",
     "Kubernetes",
@@ -67,23 +41,17 @@ module.exports = {
     "CloudFormation",
     "❌ Jenkins",
     "❌ Terraform",
-    "Supervisor"
+    "Supervisor",
   ],
-  "Testing automation": [
-    "Puppeteer"
-  ],
-  "Game Engine": [
-    "Unity",
-    "LibGdx",
-    "❌ Unreal",
-    "Phaser",
-    "Cocos2d"
-  ],
+  "Testing automation": ["Puppeteer"],
+  "Game Engine": ["Unity", "LibGdx", "❌ Unreal", "Phaser", "Cocos2d"],
   "Cyber security": [
     "VPN",
-    "Deep networking and operating system knowledge",
+    "Networking",
+    "OS",
+    "Binary",
     "Firewalls",
     "Nmap",
-    "Wireshark"
+    "Wireshark",
   ],
 };
