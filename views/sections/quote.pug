@@ -1,14 +1,26 @@
 div(id="quote-content", style="text-align: center")
     div(class="palette-picker")
         div(class="palette bg-blue")
+            a(href="https://facebook.com/robin.sajin" target="_blank").bg-blue
+                i.fab.fa-facebook-f
         div(class="palette bg-red")
+            a(href="https://github.com/robinmollah" target="_blank").bg-red
+                i.fab.fa-github
         div(class="palette bg-orange")
+            a(href="https://linkedin.com/in/robinmollah" target="_blank").bg-orange
+                i.fab.fa-linkedin
         div(class="palette bg-green")
+            a(href="mailto:robinsajin@gmail.com?subject=Mail from portfolio website" target="_blank").bg-green
+                i.fas.fa-envelope
+        div(class="palette bg-red")
+            a(href="tel:3072967109").bg-red
+                i.fas.fa-voicemail
     h1(id="quote")= quote
     h2(style="text-align: right", id="quote-author")= quote_author
 style(type="text/css").
     .palette-picker {
         display: inline-flex;
+        font-size: 2em;
     }
 
     .palette {
@@ -16,27 +28,35 @@ style(type="text/css").
         margin: 2em;
         width: 2em;
         height: 2em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .palette:hover {
-        border: 2px solid #898989;;
+        border: 2px solid #898989;
+        box-shadow: #1d4d4f 0px 1px 10px;
     }
 
-    .bg-red {
-        background-color: rgba(208, 49, 49, 0.51);
+    .bg-red, .bg-red:hover {
+        background-color: ghostwhite;
+        color: black;
     }
 
 
-    .bg-green {
-        background-color: rgba(91, 208, 49, 0.51);
+    .bg-green, .bg-green:hover {
+        color: black;
     }
 
-    .bg-orange {
-        background-color: rgba(232, 200, 19, 0.51);
+    .bg-orange, .bg-orange:hover {
+        background-color: #0077BF;
+        color: white;
     }
 
-    .bg-blue {
-        background-color: rgba(5, 108, 163, 0.51);
+    .bg-blue, .bg-blue:hover {
+        background-color: #3B5998;
+        color: white;
     }
 
     #quote-content {
