@@ -39,7 +39,7 @@ module.exports = {
     "Github actions",
     "Gitlab CI",
     "CloudFormation",
-    "❌ Jenkins",
+    "Jenkins",
     "❌ Terraform",
     "Supervisor",
   ],
