@@ -1,0 +1,38 @@
+div#top-bar
+  for key in topbar
+      p.topbar-element.bg-invert(toId=key.id href=key.url)= key.name
+
+style.
+    #top-bar {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        position: fixed;
+        top: 1px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .topbar-element {
+        padding: 10px 30px;
+        margin: 10px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+
+    .topbar-element:hover {
+        background-color: #e6e6e6;
+        color: #340000;
+    }
+
+    .topbar-element.active {
+        background-color: #340000;
+        color: #f2f2f2;
+    }
+
+    @media screen and (max-width: 450px) {
+        .topbar-element {
+            display: none;
+        }
+    }

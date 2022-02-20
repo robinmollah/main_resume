@@ -6,6 +6,34 @@ const db = require("../src/db");
 let insertReview = require("../src/submit_review").insertReview;
 const quotes = require("../src/data/quotes.json");
 
+const topbar = [
+  {
+    name: "Home",
+    id: "#",
+  },
+  {
+    name: "Skillset",
+    id: "skill-search",
+  },
+  {
+    name: "Projects",
+    id: "projects",
+  },
+  { name: "Experiences", id: "experiences" },
+  {
+    name: "Blogs",
+    url: "https://blog.robin.engineer",
+  },
+  // {
+  //   name: "About",
+  //   id: "about",
+  // },
+  // {
+  //   name: "Contact",
+  //   id: "contact",
+  // },
+];
+
 router.get("/", function (req, res, next) {
   console.log(req.headers.host);
   if (req.headers.host.indexOf("covid19") == 0) {
@@ -18,6 +46,7 @@ router.get("/", function (req, res, next) {
       skillsets: skills,
       quote: quotes[rand].quote,
       quote_author: quotes[rand].author,
+      topbar: topbar,
     });
   }
 });

@@ -25,3 +25,22 @@ html
       }
   body
     block content
+
+
+script(type='text/javascript', src="https://code.jquery.com/jquery-1.9.1.min.js")
+script.
+  $(".topbar-element").on("click", (event) => {
+    $(".topbar-element").removeClass("active");
+    console.log("clicked", $(event.target));
+    const jumpId = $(event.target).attr("toId");
+    if(!jumpId){
+      const url = $(event.target).attr("href");
+      window.location.href = url;
+    }
+    console.log("Jumping to " + jumpId);
+    document.getElementById(jumpId).scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+    $(event.target).addClass("active");
+  });
