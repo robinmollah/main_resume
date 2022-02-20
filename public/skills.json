@@ -12,11 +12,7 @@
       "CloudTrail",
       "ApiGateway"
     ],
-    "Google Cloud Platform": [
-      "AppEngine",
-      "Compute Engine",
-      "Datastore"
-    ],
+    "Google Cloud Platform": ["AppEngine", "Compute Engine", "Datastore"],
     "Firebase": [
       "Firebase Auth",
       "Functions",
@@ -24,60 +20,17 @@
       "Datastore",
       "Serverless"
     ],
-    "Azure": [
-      "VM"
-    ]
+    "Azure": ["VM"]
   },
   "Web": {
-    "UI": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "ReactJS",
-      "VueJS",
-      "Pug",
-      "EJS"
-    ],
-    "Frameworks": [
-      "Laravel",
-      "Express",
-      "LuCi"
-    ],
-    "Databases": [
-      "MySQL",
-      "PostGres",
-      "MongoDB",
-      "Firestore",
-      "Datastore"
-    ],
-    "Servers": [
-      "Nginx",
-      "S3",
-      "Lambda",
-      "Firebase web app"
-    ],
-    "Plain TCP": [
-      "Java",
-      "NodeJs",
-      "Python"
-    ]
+    "UI": ["HTML", "CSS", "JavaScript", "ReactJS", "VueJS", "Pug", "EJS"],
+    "Frameworks": ["Laravel", "Express", "LuCi"],
+    "Servers": ["Nginx", "S3", "Lambda", "Firebase web app"],
+    "Plain TCP": ["Java", "NodeJs", "Python"]
   },
-  "Applications": [
-    "Android",
-    "React Native"
-  ],
-  "Languages": [
-    "JavaScript",
-    "Java",
-    "C#",
-    "Kotlin",
-    "Python"
-  ],
-  "Bash Scripting": [
-    "Fan of scripting",
-    "Process management",
-    "AWS CLI"
-  ],
+  "Applications": ["Android", "React Native"],
+  "Languages": ["JavaScript", "Java", "C#", "Kotlin", "Python"],
+  "Bash Scripting": ["Fan of scripting", "Process management", "AWS CLI"],
   "DevOps": [
     "Nginx",
     "Docker",
@@ -90,16 +43,8 @@
     "❌ Terraform",
     "Supervisor"
   ],
-  "Testing automation": [
-    "Puppeteer"
-  ],
-  "Game Engine": [
-    "Unity",
-    "LibGdx",
-    "❌ Unreal",
-    "Phaser",
-    "Cocos2d"
-  ],
+  "Testing automation": ["Puppeteer"],
+  "Game Engine": ["Unity", "LibGdx", "❌ Unreal", "Phaser", "Cocos2d"],
   "Cyber security": [
     "VPN",
     "Networking",

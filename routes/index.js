@@ -1,10 +1,10 @@
 let express = require("express");
 let router = express.Router();
 let data = require("../src/csv-parser");
-let skills = require("../src/data/skills");
+let skills = require("../public/skills.json");
 const db = require("../src/db");
 let insertReview = require("../src/submit_review").insertReview;
-const quotes = require("../src/data/quotes");
+const quotes = require("../src/data/quotes.json");
 
 router.get("/", function (req, res, next) {
   console.log(req.headers.host);
