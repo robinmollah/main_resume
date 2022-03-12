@@ -9,7 +9,7 @@ const quotes = require("../src/data/quotes.json");
 const topbar = [
   {
     name: "Home",
-    id: "#",
+    id: "top",
   },
   {
     name: "Skillset",
