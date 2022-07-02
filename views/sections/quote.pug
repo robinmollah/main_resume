@@ -2,12 +2,13 @@ style(type="text/css").
     .palette-picker {
         display: flex;
         font-size: 2em;
-        justify-content: space-around;
+        justify-content: center;
     }
 
     .palette {
         border: 2px solid lightgray;
         width: 2em;
+        margin: 0.8em 0.4em;
         height: 2em;
 
         display: flex;
@@ -44,8 +45,8 @@ style(type="text/css").
         border-radius: 1em;
     }
 div(id="quote-content", style="text-align: center")
-    div(class="palette-picker")
-        div(class="palette bg-blue")
+    div.palette-picker
+        div.palette.bg-blue
             a(href="https://facebook.com/robin.sajin" target="_blank").bg-blue
                 i.fab.fa-facebook-f
         div(class="palette bg-red")
