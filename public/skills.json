@@ -20,10 +20,10 @@
       "Datastore",
       "Serverless"
     ],
-    "Azure": ["VM"]
+    "Azure": ["VM", "Log monitoring", "Alert", "Access Management", "Cosmos DB"]
   },
   "Front-end": {
-    "Frameworks": ["React", "Vue"],
+    "Frameworks": ["React", "Vue", "Angular"],
     "State management": ["Redux", "Mobx", "Recoil"],
     "Libraries": ["Material UI", "ChakraUI", "Semantic UI", "Bootstrap", "JQuery"],
     "Template Engines": ["EJS", "Pug", "Blade"]
@@ -48,7 +48,7 @@
     "Terraform",
     "Supervisor"
   ],
-  "Testing automation": ["Puppeteer"],
+  "Testing automation": ["Puppeteer", "Selenium"],
   "Game Engine": ["Unity", "LibGdx", "Unreal", "Phaser", "Cocos2d"],
   "Cyber security": [
     "VPN",
