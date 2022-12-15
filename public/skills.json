@@ -12,7 +12,14 @@
       "CloudTrail",
       "ApiGateway"
     ],
-    "Google Cloud Platform": ["AppEngine", "Compute Engine", "Datastore"],
+    "Google Cloud Platform": [
+      "App Engine",
+      "Compute Engine",
+      "Kubernetes (GKE)",
+      "Cloud Storage",
+      "Monitoring",
+      "Datastore"
+    ],
     "Firebase": [
       "Firebase Auth",
       "Functions",
@@ -20,22 +27,75 @@
       "Datastore",
       "Serverless"
     ],
-    "Azure": ["VM", "Log monitoring", "Alert", "Access Management", "Cosmos DB"]
+    "Azure": [
+      "VM",
+      "Log monitoring",
+      "Alert",
+      "Access Management",
+      "Cosmos DB"
+    ]
   },
   "Front-end": {
-    "Frameworks": ["React", "Vue", "Angular"],
-    "State management": ["Redux", "Mobx", "Recoil"],
-    "Libraries": ["Material UI", "ChakraUI", "Semantic UI", "Bootstrap", "JQuery"],
-    "Template Engines": ["EJS", "Pug", "Blade"]
+    "Frameworks": [
+      "React",
+      "Vue",
+      "Angular"
+    ],
+    "State management": [
+      "Redux",
+      "Mobx",
+      "Recoil"
+    ],
+    "Libraries": [
+      "Material UI",
+      "ChakraUI",
+      "Semantic UI",
+      "Bootstrap",
+      "JQuery"
+    ],
+    "Template Engines": [
+      "EJS",
+      "Pug",
+      "Blade"
+    ]
   },
   "Backend": {
-    "Frameworks": ["Laravel", "Express", "LuCi"],
-    "Servers": ["Nginx", "S3", "Lambda", "Firebase web app", "Linux", "Windows"],
-    "Plain TCP": ["Java", "NodeJs", "Python"]
+    "Frameworks": [
+      "FastAPI",
+      "Laravel",
+      "Express",
+      "LuCi"
+    ],
+    "Servers": [
+      "Nginx",
+      "S3",
+      "Lambda",
+      "Firebase web app",
+      "Linux",
+      "Windows"
+    ],
+    "Plain TCP": [
+      "Java",
+      "NodeJs",
+      "Python"
+    ]
   },
-  "Applications": ["Android", "React Native"],
-  "Languages": ["JavaScript", "Java", "C#", "Kotlin", "Python"],
-  "Bash Scripting": ["Fan of scripting", "Process management", "AWS CLI"],
+  "Applications": [
+    "Android",
+    "React Native"
+  ],
+  "Languages": [
+    "JavaScript",
+    "Java",
+    "C#",
+    "Kotlin",
+    "Python"
+  ],
+  "Bash Scripting": [
+    "Fan of scripting",
+    "Process management",
+    "AWS CLI"
+  ],
   "DevOps": [
     "Nginx",
     "Docker",
@@ -48,8 +108,17 @@
     "Terraform",
     "Supervisor"
   ],
-  "Testing automation": ["Puppeteer", "Selenium"],
-  "Game Engine": ["Unity", "LibGdx", "Unreal", "Phaser", "Cocos2d"],
+  "Testing automation": [
+    "Puppeteer",
+    "Selenium"
+  ],
+  "Game Engine": [
+    "Unity",
+    "LibGdx",
+    "Unreal",
+    "Phaser",
+    "Cocos2d"
+  ],
   "Cyber security": [
     "VPN",
     "Networking",
