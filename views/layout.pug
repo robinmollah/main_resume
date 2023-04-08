@@ -29,18 +29,35 @@ html
 
 script(type='text/javascript', src="https://code.jquery.com/jquery-1.9.1.min.js")
 script.
-  $(".topbar-element").on("click", (event) => {
-    $(".topbar-element").removeClass("active");
-    console.log("clicked", $(event.target));
-    const jumpId = $(event.target).attr("toId");
-    if(!jumpId){
-      const url = $(event.target).attr("href");
-      window.location.href = url;
-    }
-    console.log("Jumping to " + jumpId);
-    document.getElementById(jumpId).scrollIntoView({
+  function jumpTo(id){
+    document.getElementById(id).scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
+  }
+
+  $(".topbar-element[href]").on("click", (event) => {
+    const url = $(event.target).attr("href");
+    window.location.href = url;
+  });
+
+  $(".topbar-element").on("mouseover", (event) => {
+    $(".topbar-element").removeClass("active");
+    const jumpId = $(event.target).attr("toId");
+    console.log("Jumping to " + jumpId);
+    jumpTo(jumpId);
     $(event.target).addClass("active");
+  });
+
+  $(document).ready(() => {
+    const url = window.location.href;
+    const urlParts = url.split("/?");
+    const lastPart = urlParts[urlParts.length - 1];
+    if(lastPart === ""){
+      $(".topbar-element[toId='top']").addClass("active");
+    } else {
+      console.log("last part", lastPart);
+      $(".topbar-element[toId='" + lastPart + "']").addClass("active");
+      jumpTo(lastPart);
+    }
   });

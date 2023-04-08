@@ -97,8 +97,12 @@ style.
         min-height: 100vh;
     }
 
-    .project-showcase, .project-detail {
+    .project-detail {
         display: flex;
+    }
+
+    .project-showcase {
+        display: block;
     }
 
     .project-detail {
@@ -119,8 +123,8 @@ style.
     }
 
     .project-detail img {
-        max-width: 330px;
-        max-height: 330px;
+        max-width: 32%;
+        max-height: 32%;
     }
 
     ::-webkit-scrollbar {
@@ -141,6 +145,11 @@ style.
 
 
     .project-showcase {
-        display: block;
         text-align: center;
+    }
+
+    @media screen and (min-width: 1000px) {
+        .project-showcase {
+            display: flex;
+        }
     }
