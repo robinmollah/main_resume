@@ -1,4 +1,4 @@
-version: 3
+version: "3"
 services:
   robin0.3:
     image: robin0.3
