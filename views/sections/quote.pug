@@ -7,7 +7,8 @@ style(type="text/css").
 
     .palette {
         border: 2px solid lightgray;
-        width: 2em;
+        width: 6em;
+        height: 2em;
         margin: 0.8em 0.4em;
         height: 2em;
 
@@ -45,22 +46,27 @@ style(type="text/css").
         border-radius: 1em;
     }
 div(id="quote-content", style="text-align: center")
-    div.palette-picker
-        div.palette.bg-blue
-            a(href="https://facebook.com/robin.sajin" target="_blank").bg-blue
-                i.fab.fa-facebook-f
-        div(class="palette bg-red")
-            a(href="https://github.com/robinmollah" target="_blank").bg-red
-                i.fab.fa-github
-        div(class="palette bg-orange")
-            a(href="https://linkedin.com/in/robinmollah" target="_blank").bg-orange
-                i.fab.fa-linkedin
-        div(class="palette bg-green")
-            a(href="mailto:robinsajin@gmail.com?subject=Mail from portfolio website" target="_blank").bg-green
-                i.fas.fa-envelope
-        div(class="palette bg-red")
-            a(href="tel:3072967109").bg-red
-                i.fas.fa-voicemail
+    div
+        h3 Contact Me on
+        div.palette-picker
+            div.palette.bg-blue
+                a(href="https://facebook.com/robin.sajin" target="_blank").bg-blue
+                    span Facebook
+                        i.fab.fa-facebook-f
+            div(class="palette bg-red")
+                a(href="https://github.com/robinmollah" target="_blank").bg-red
+                    span GitHub
+                        i.fab.fa-github
+            div(class="palette bg-orange")
+                a(href="https://linkedin.com/in/robinmollah" target="_blank").bg-orange
+                    span LinkedIn
+                        i.fab.fa-linkedin
+            div(class="palette bg-green")
+                a(href="mailto:robinsajin@gmail.com?subject=Mail from portfolio website" target="_blank").bg-green
+                    span Mail
+                        i.fas.fa-envelope
+    br
+    br
     h1(id="quote")= quote
     h2(style="text-align: right", id="quote-author")= quote_author
 
