@@ -42,12 +42,13 @@ router.get("/", function (req, res, next) {
     res.render("review/index", {});
   } else {
     const rand = Math.floor(Math.random() * 3);
-    res.render("index", {
+    const pug_options = {
       skillsets: skills,
       quote: quotes[rand].quote,
       quote_author: quotes[rand].author,
       topbar: topbar,
-    });
+    }
+    res.render("index",pug_options );
   }
 });
 

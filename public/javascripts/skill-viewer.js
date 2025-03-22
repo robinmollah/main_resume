@@ -4,7 +4,7 @@ const list1 = document.getElementById("list1");
 let skills;
 let previousTarget;
 
-fetch("skills.json")
+fetch("./skills.json")
   .then((r) => r.json())
   .then((res) => {
     console.log(res);
